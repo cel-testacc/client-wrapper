@@ -1,0 +1,21 @@
+<!-- cwrapper/templates/cwrapper/dashboard.html -->
+
+{% extends 'cwrapper/base.html' %}
+
+{% block content %}
+{% if messages %}
+<ul>
+{% for message in messages %}
+<li>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+<div>
+  <form enctype="multipart/form-data" method = "post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+</div>
+
+{% endblock content %}
